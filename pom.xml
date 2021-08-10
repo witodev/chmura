@@ -10,7 +10,9 @@
 
     <modules>
         <module>config-server</module>
+        <module>eureka-server</module>
         <module>first-client</module>
+        <module>second-client</module>
     </modules>
 
     <properties>

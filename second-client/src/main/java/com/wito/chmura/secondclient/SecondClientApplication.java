@@ -14,22 +14,20 @@
  * limitations under the License.
  */
 
-package com.wito.chmura.configserver;
+package com.wito.chmura.secondclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
 
-@EnableDiscoveryClient
-@EnableConfigServer
+// http://localhost:8080/message
+
 @SpringBootApplication
-public class ConfigServerApplication {
+@EnableDiscoveryClient
+public class SecondClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+		SpringApplication.run(SecondClientApplication.class, args);
 	}
-
 }
 
-// $ curl localhost:8080/actuator/refresh -d {} -H "Content-Type: application/json"
