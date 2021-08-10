@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package com.wito.chmura.configserver;
+package com.wito.chmura.firstclient;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-@EnableConfigServer
-@SpringBootApplication
-public class ConfigServerApplication {
+@SpringBootTest
+class FirstClientApplicationTests {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+	@Test
+	void contextLoads() {
 	}
 
 }
-
-// $ curl localhost:8080/actuator/refresh -d {} -H "Content-Type: application/json"
