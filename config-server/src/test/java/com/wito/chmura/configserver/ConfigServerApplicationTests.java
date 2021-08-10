@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.centralizedconfigurationservice;
+package com.wito.chmura.configserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CentralizedConfigurationServiceApplicationTests {
+class ConfigServerApplicationTests {
 
 	@Test
 	void contextLoads() {
