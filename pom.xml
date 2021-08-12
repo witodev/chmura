@@ -14,6 +14,7 @@
         <module>first-client</module>
         <module>second-client</module>
         <module>third-client</module>
+        <module>fourth-client</module>
     </modules>
 
     <properties>
