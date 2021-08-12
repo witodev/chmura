@@ -5,15 +5,17 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RefreshScope
 @RestController
 class SecondMessageRestController {
 
-    @Value("${message:Hello default}")
+    @Value("${message:Default second client}")
     private String message;
 
     @RequestMapping("/message")
-    String getMessage() {
-        return this.message;
+    Map<String, String> getMessage() {
+        return Map.of("greetings", message);
     }
 }

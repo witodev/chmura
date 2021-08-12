@@ -1,4 +1,4 @@
-package com.wito.chmura.firstclient;
+package com.wito.thirdclient;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -11,7 +11,7 @@ import java.util.Map;
 @RestController
 class MessageRestController {
 
-    @Value("${message:Default first client}")
+    @Value("${message:no conf 3}")
     private String message;
 
     @RequestMapping("/message")

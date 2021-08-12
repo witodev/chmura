@@ -32,4 +32,4 @@ public class ConfigServerApplication {
 
 }
 
-// $ curl localhost:8080/actuator/refresh -d {} -H "Content-Type: application/json"
+// curl localhost:8888/actuator/refresh -d {} -H "Content-Type: application/json"

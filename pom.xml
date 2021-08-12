@@ -13,6 +13,7 @@
         <module>eureka-server</module>
         <module>first-client</module>
         <module>second-client</module>
+        <module>third-client</module>
     </modules>
 
     <properties>
