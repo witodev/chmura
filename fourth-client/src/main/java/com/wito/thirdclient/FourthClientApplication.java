@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -18,37 +19,41 @@ import reactor.core.publisher.Flux;
 @Log4j2
 public class FourthClientApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FourthClientApplication.class, args);
-		ClientCaller.get("http://third-client/message", Greeting.class).subscribe(greeting -> log.info("caller3: " + greeting.toString()));
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FourthClientApplication.class, args);
+        ClientCaller.get("http://third-client/message", Greeting.class).subscribe(greeting -> log.info("caller3: " + greeting.toString()));
+    }
 
-	@Bean
-	@LoadBalanced
-	WebClient.Builder builder() {
-		return WebClient.builder();
-	}
+    @Bean("loadBalancedBuilder")
+    @LoadBalanced
+    WebClient.Builder builder() {
+        return WebClient.builder();
+    }
 
-	@Bean
-	WebClient webClient(WebClient.Builder builder) {
-		return builder.build();
-	}
+    @Bean("loadBalancedWebClient")
+    @DependsOn("loadBalancedBuilder")
+    WebClient webClient(WebClient.Builder builder) {
+        return builder.build();
+    }
 }
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 class Greeting {
-	private String greetings;
+    private String greetings;
 }
 
 @Component
+@DependsOn("loadBalancedWebClient")
 class ClientCaller {
-	private static WebClient http = null;
-	public ClientCaller(WebClient http) {
-		ClientCaller.http = http;
-	}
-	public static <T> Flux<T> get(String url, Class<T> clazz) {
-		return http.get().uri(url).retrieve().bodyToFlux(clazz);
-	}
+    private static WebClient http = null;
+
+    public ClientCaller(WebClient http) {
+        ClientCaller.http = http;
+    }
+
+    public static <T> Flux<T> get(String url, Class<T> clazz) {
+        return http.get().uri(url).retrieve().bodyToFlux(clazz);
+    }
 }
