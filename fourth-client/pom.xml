@@ -12,6 +12,13 @@
 	<artifactId>fourth-client</artifactId>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.wito</groupId>
+			<artifactId>common-class</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>

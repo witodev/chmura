@@ -1,8 +1,6 @@
 package com.wito.thirdclient;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.wito.chmura.commonclass.Greeting;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,12 +35,12 @@ public class FourthClientApplication {
     }
 }
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class Greeting {
-    private String greetings;
-}
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//class Greeting {
+//    private String greetings;
+//}
 
 @Component
 @DependsOn("loadBalancedWebClient")

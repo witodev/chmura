@@ -1,11 +1,10 @@
 package com.wito.thirdclient;
 
+import com.wito.chmura.commonclass.Greeting;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Map;
 
 @RefreshScope
 @RestController
@@ -15,7 +14,7 @@ class MessageRestController {
     private String message;
 
     @RequestMapping("/message")
-    Map<String, String> getMessage() {
-        return Map.of("greetings", message);
+    Greeting getMessage() {
+        return new Greeting(message);
     }
 }

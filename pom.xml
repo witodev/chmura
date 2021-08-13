@@ -6,9 +6,16 @@
     <groupId>com.wito</groupId>
     <artifactId>chmura</artifactId>
     <version>0.1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+        </dependency>
+    </dependencies>
     <packaging>pom</packaging>
 
     <modules>
+        <module>common-class</module>
         <module>config-server</module>
         <module>eureka-server</module>
         <module>first-client</module>
