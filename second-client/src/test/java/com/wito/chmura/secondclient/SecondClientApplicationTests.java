@@ -19,12 +19,14 @@ package com.wito.chmura.secondclient;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.Assert.assertTrue;
+
 @SpringBootTest
 class SecondClientApplicationTests {
 
 	@Test
 	void contextLoads() {
-		assert true;
+		assertTrue(true);
 	}
 
 }
