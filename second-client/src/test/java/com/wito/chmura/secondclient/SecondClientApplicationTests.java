@@ -24,6 +24,7 @@ class SecondClientApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert true;
 	}
 
 }

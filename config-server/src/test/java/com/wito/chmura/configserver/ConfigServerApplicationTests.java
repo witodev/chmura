@@ -24,6 +24,7 @@ class ConfigServerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert true;
 	}
 
 }

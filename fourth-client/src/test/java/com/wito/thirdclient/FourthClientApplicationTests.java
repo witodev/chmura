@@ -8,6 +8,7 @@ class FourthClientApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert true;
 	}
 
 }
