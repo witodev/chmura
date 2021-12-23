@@ -35,19 +35,12 @@ public class FourthClientApplication {
     }
 }
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
-//class Greeting {
-//    private String greetings;
-//}
-
 @Component
 @DependsOn("loadBalancedWebClient")
 class ClientCaller {
     private static WebClient http = null;
 
-    public ClientCaller(WebClient http) {
+    private ClientCaller(WebClient http) {
         ClientCaller.http = http;
     }
 

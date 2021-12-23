@@ -45,17 +45,10 @@ public class ThirdClientApplication {
     }
 }
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
-//class Greeting {
-//    private String greetings;
-//}
-
 @Component
 class ClientCaller {
     private static WebClient http = null;
-    public ClientCaller(WebClient http) {
+    private ClientCaller(WebClient http) {
         ClientCaller.http = http;
     }
     public static <T> Flux<T> get(String url, Class<T> clazz) {
@@ -83,22 +76,6 @@ class ReactiveLoadBalancerFactoryRunner {
     }
 }
 
-//@Component
-//@Log4j2
-//class WebClientRunner {
-//
-//    WebClientRunner(ReactiveLoadBalancer.Factory<ServiceInstance> serviceInstanceFactory) {
-//
-//        var filter = new ReactorLoadBalancerExchangeFilterFunction(serviceInstanceFactory);
-//
-//        var http = WebClient.builder()
-//                .filter(filter)
-//                .build();
-//
-//        call(http, "http://api/greetings").subscribe(greeting -> log.info("filter: " + greeting.toString()));
-//    }
-//}
-
 @Component
 @Log4j2
 class ConfiguredWebClientRunner  {
@@ -106,7 +83,6 @@ class ConfiguredWebClientRunner  {
         call(http, "http://first-client/message").subscribe(greeting -> log.info("configured: " + greeting.toString()));
         ClientCaller.get("http://first-client/message", Greeting.class).subscribe(greeting -> log.info("caller1: " + greeting.toString()));
         ClientCaller.get("http://second-client/message", Greeting.class).subscribe(greeting -> log.info("caller2: " + greeting.toString()));
-//        ClientCaller.get("http://third-client/message", Greeting.class).subscribe(greeting -> log.info("caller3: " + greeting.toString()));
     }
 }
 
